@@ -1,13 +1,25 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-cart-main',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './cart-main.component.html',
-  styleUrl: './cart-main.component.css'
+  styleUrl: './cart-main.component.css',
 })
 export class CartMainComponent {
+  isCartOpen = true;
+  isCartClosing = false;
+  constructor(private cartService: CartService) {}
 
+  closeCart() {
+    this.isCartClosing = true;
+
+    setTimeout(() => {
+      this.cartService.toggleCartVisibility();
+      this.isCartClosing = false;
+    }, 990);
+  }
 }

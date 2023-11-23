@@ -1,3 +1,9 @@
-<div>
-  <i class="fa fa-shopping-cart text-white text-3xl"></i>
-</div>
+<section
+  class="h-screen fixed right-0 top-0 w-1/2 lg:w-1/5 bg-white cart-main"
+  [ngClass]="{ 'cart-main-close': isCartClosing }"
+>
+  <button (click)="closeCart()">X</button>
+  <div>
+    <p class="text-black">Cart component will go here</p>
+  </div>
+</section>
