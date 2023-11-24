@@ -1,0 +1,48 @@
+.text {
+  font-size: 50px;
+  display: flex;
+  transform: translateX(-50%);
+  user-select: none;
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+
+    .letter {
+      transition: ease-out 2s;
+      transform: translateY(35%);
+      color: #ffc83d;
+    }
+
+    .shadow {
+      transform: scale(1, -1);
+      color: #e3e0e0;
+      transition: ease-in 5s, ease-out 5s;
+    }
+
+    &:hover {
+      .letter {
+        transform: translateY(-50%);
+      }
+
+      .shadow {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    font-size: 75px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 130px;
+  }
+}
+
+.custom-position {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

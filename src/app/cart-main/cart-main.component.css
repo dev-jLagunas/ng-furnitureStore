@@ -23,3 +23,11 @@
 .cart-main-close {
   animation: 1s ease-in 0s 1 slideOutToRight;
 }
+
+.custom-shadow {
+  filter: drop-shadow(-2px 0px 15px #000000);
+}
+
+.custom-zindex {
+  z-index: 1000;
+}

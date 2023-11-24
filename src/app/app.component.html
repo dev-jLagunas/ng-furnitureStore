@@ -1,24 +1,23 @@
-<section
-  class="bg-cover bg-center h-screen"
-  style="background-image: url('assets/furniture/hero-large.jpg')"
->
-  <div class="flex justify-evenly items-center xl:justify-center xl:space-x-20">
+<section class="h-screen flex flex-col">
+  <div
+    class="flex justify-evenly items-center xl:justify-center xl:space-x-20 z-10"
+  >
     <app-navbar></app-navbar>
-    <img src="assets/logo/Logo.svg" alt="Leafe logo" class="h-20" />
+    <img src="assets/logo/Logo.svg" alt="Leafe logo" class="h-20 -z-0" />
     <i
       class="fa fa-shopping-cart text-white text-3xl hover:cursor-pointer"
       (click)="toggleCart()"
     ></i>
   </div>
-  <div>
+  <div class="fixed inset-0">
     <router-outlet></router-outlet>
   </div>
-  <div>
-    <app-footer></app-footer>
-  </div>
   @if (cartVisible$ | async) {
-  <div class="">
+  <div class="fixed inset-0 bg-black bg-opacity-50 z-50">
     <app-cart-main></app-cart-main>
   </div>
   }
+  <div class="z-10 app-footer">
+    <app-footer></app-footer>
+  </div>
 </section>

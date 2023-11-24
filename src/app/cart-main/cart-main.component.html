@@ -1,9 +1,17 @@
 <section
-  class="h-screen fixed right-0 top-0 w-1/2 lg:w-1/5 bg-white cart-main"
+  class="h-screen fixed right-0 top-0 w-1/2 lg:w-1/5 bg-white cart-main custom-shadow flex flex-col items-center"
   [ngClass]="{ 'cart-main-close': isCartClosing }"
 >
-  <button (click)="closeCart()">X</button>
+  <button
+    (click)="closeCart()"
+    class="absolute top-0 -left-4 text-xl bg-orange-700 text-white p-4 hover:cursor-pointer"
+  >
+    X
+  </button>
+  <div class="mt-8 mb-4">
+    <h3 class="text-3xl">Your Cart</h3>
+  </div>
   <div>
-    <p class="text-black">Cart component will go here</p>
+    <app-cart-item></app-cart-item>
   </div>
 </section>

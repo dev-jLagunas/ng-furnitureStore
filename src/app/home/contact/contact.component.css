@@ -1,0 +1,42 @@
+.custom-bg {
+  background-image: url("/assets/furniture/contact-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.text {
+  display: flex;
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+
+    .letter {
+      transition: ease-out 2s;
+      transform: translateY(20%);
+      color: #ffc83d;
+    }
+
+    .shadow {
+      transform: scale(1, -1);
+      color: #fff;
+      transition: ease-in 5s, ease-out 5s;
+    }
+
+    &:hover {
+      .letter {
+        transform: translateY(-50%);
+      }
+
+      .shadow {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+    }
+  }
+}
+
+.custom-color {
+  color: #ffc83d;
+}

@@ -14,9 +14,17 @@ module.exports = {
     "src/app/footer/footer.component.html",
     "src/app/cart-main/cart-main.component.html",
     "src/app/cart-main/cart-item/cart-item.component.html",
+    "src/app/not-found/not-found.component.html",
   ],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        "90vh": "90vh",
+      },
+      width: {
+        "90vw": "90vw",
+      },
+    },
   },
   plugins: [],
 };
