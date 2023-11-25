@@ -1,3 +1,74 @@
 <section class="h-screen custom-bg flex flex-col justify-center items-center">
-  <p>product-single works!</p>
+  <div class="text text-base sm:text-2xl lg:text-6xl sm:-mt-20">
+    <div class="wrapper">
+      <div id="L" class="letter">D</div>
+      <div class="shadow">D</div>
+    </div>
+    <div class="wrapper">
+      <div id="I" class="letter">E</div>
+      <div class="shadow">E</div>
+    </div>
+    <div class="wrapper">
+      <div id="G" class="letter">T</div>
+      <div class="shadow">T</div>
+    </div>
+    <div class="wrapper">
+      <div id="H" class="letter">A</div>
+      <div class="shadow">A</div>
+    </div>
+    <div class="wrapper">
+      <div id="H" class="letter">I</div>
+      <div class="shadow">I</div>
+    </div>
+    <div class="wrapper">
+      <div id="H" class="letter">L</div>
+      <div class="shadow">L</div>
+    </div>
+    <div class="wrapper">
+      <div id="H" class="letter">S</div>
+      <div class="shadow">S</div>
+    </div>
+  </div>
+  @if(singleProductData){
+  <div
+    class="flex flex-col sm:flex-row items-center justify-center w-90vw mx-auto lg:w-3/4"
+  >
+    @for (image of singleProductData.fields.image; track image.id) {
+
+    <div
+      class="w-full h-60 sm:flex-1 border-r-8 sm:border-r-0 border-b-8 border-t-8 sm:border-t-0 border-double border-slate-100"
+    >
+      <img
+        [src]="image.url"
+        alt="Product Image"
+        class="h-full w-full object-cover"
+      />
+    </div>
+    }
+    <div
+      class="sm:flex-1 bg-gray-800 bg-opacity-40 border-l-8 border-b-8 sm:border-b-0 sm:border-t-8 border-double border-slate-100 text-white text-center flex flex-col items-center justify-center space-y-1 py-2 sm:py-5 lg:py-4 xl:py-8"
+    >
+      <h2 class="text-sm sm:text-2xl tracking-widest lg:text-3xl">
+        {{ singleProductData.fields.name | titlecase }}
+      </h2>
+      <p class="text-xs">by LEAFE</p>
+      <p>{{ singleProductData.fields.price | currency : "JPY" : "symbol" }}</p>
+      <p class="text-xs px-2 lg:text-xs">
+        {{ singleProductData.fields.description }}
+      </p>
+      <div class="flex w-max mx-auto">
+        <div *ngFor="let color of singleProductData.fields.colors" class="">
+          <div
+            [style.background-color]="color"
+            class="h-4 w-4 rounded-full"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  } @if (!singleProductData) {
+  <div
+    class="w-52 h-52 border-4 border-dashed rounded-full animate-spin dark:border-slate-500"
+  ></div>
+  }
 </section>

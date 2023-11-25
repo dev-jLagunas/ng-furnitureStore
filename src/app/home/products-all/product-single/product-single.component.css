@@ -8,9 +8,8 @@
 .text {
   display: flex;
   .wrapper {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     .letter {
       transition: ease-out 2s;
@@ -35,4 +34,8 @@
       }
     }
   }
+}
+
+.custom-border {
+  border: 6px double white;
 }

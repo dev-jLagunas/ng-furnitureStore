@@ -54,7 +54,12 @@
       <div
         class="absolute top-32 left-52 sm:left-28 lg:left-44 lg:top-20 md:left-36 text-3xl flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hover:cursor-pointer"
       >
-        <p><i class="fas fa-search text-yellow-500"></i></p>
+        <p>
+          <i
+            class="fas fa-search text-yellow-500"
+            (click)="navigateToSingleProduct(product.id)"
+          ></i>
+        </p>
         <p><i class="fas fa-shopping-cart text-yellow-500"></i></p>
       </div>
       }

@@ -17,3 +17,19 @@ export interface Furniture {
     }[];
   };
 }
+
+export interface SingleFurniture {
+  id: string;
+  fields: {
+    company: string;
+    colors: string[];
+    featured: boolean;
+    price: number;
+    name: string;
+    description: string;
+    image: {
+      id: string;
+      url: string;
+    }[];
+  };
+}

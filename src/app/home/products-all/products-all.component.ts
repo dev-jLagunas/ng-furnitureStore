@@ -5,6 +5,7 @@ import { ProductSingleComponent } from './product-single/product-single.componen
 import { Router } from '@angular/router';
 import { ProductsAllService } from '../../services/products-all.service';
 import { Furniture } from '../../interfaces/products.interface';
+
 @Component({
   selector: 'app-products-all',
   standalone: true,
@@ -23,8 +24,8 @@ export class ProductsAllComponent implements OnInit {
     this.fetchDataAndTransform();
   }
 
-  navigateToSingleProduct() {
-    this.router.navigate(['/products/single']);
+  navigateToSingleProduct(id: string) {
+    this.router.navigate(['/products/single', id]);
   }
 
   fetchDataAndTransform() {
