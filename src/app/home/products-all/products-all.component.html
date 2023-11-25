@@ -1,7 +1,75 @@
-<section class="h-screen custom-bg flex flex-col justify-center items-center">
-  <div class="">
-    <p>products-all works!</p>
-    <app-products-filter></app-products-filter>
-    <button (click)="navigateToSingleProduct()">Go to SINGLE PRODUCT</button>
-  </div>
+<section class="h-screen custom-bg">
+  <header class="pt-20 sm:pt-10">
+    <div
+      class="flex flex-col-reverse justify-center items-center sm:flex-row mb-2"
+    >
+      <div class="text text-3xl lg:text-5xl relative">
+        <div class="wrapper">
+          <div id="L" class="letter">P</div>
+          <div class="shadow">P</div>
+        </div>
+        <div class="wrapper">
+          <div id="I" class="letter">R</div>
+          <div class="shadow">R</div>
+        </div>
+        <div class="wrapper">
+          <div id="G" class="letter">O</div>
+          <div class="shadow">O</div>
+        </div>
+        <div class="wrapper">
+          <div id="H" class="letter">D</div>
+          <div class="shadow">D</div>
+        </div>
+        <div class="wrapper">
+          <div id="H" class="letter">U</div>
+          <div class="shadow">U</div>
+        </div>
+        <div class="wrapper">
+          <div id="H" class="letter">C</div>
+          <div class="shadow">C</div>
+        </div>
+        <div class="wrapper">
+          <div id="H" class="letter">T</div>
+          <div class="shadow">T</div>
+        </div>
+        <div class="wrapper">
+          <div id="H" class="letter">S</div>
+          <div class="shadow">S</div>
+        </div>
+      </div>
+      <app-products-filter></app-products-filter>
+    </div>
+  </header>
+  <main
+    class="h-screen overflow-y-auto sm:w-90vw sm:mx-auto sm:grid sm:grid-cols-2 sm:gap-x-2 lg:grid-cols-3 pb-72 lg:pb-60"
+  >
+    @for (product of products; track product.id) {
+    <div class="flex flex-col mb-2 relative group">
+      @for (image of product.fields.image; track image.id) {
+      <img
+        [src]="image.url"
+        alt="Image"
+        class="w-full h-80 md:h-64 lg:h-52 object-cover rounded-tl-md rounded-tr-md"
+      />
+      <div
+        class="absolute top-32 left-52 sm:left-28 lg:left-44 lg:top-20 md:left-36 text-3xl flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hover:cursor-pointer"
+      >
+        <p><i class="fas fa-search text-yellow-500"></i></p>
+        <p><i class="fas fa-shopping-cart text-yellow-500"></i></p>
+      </div>
+      }
+      <div
+        class="text-white bg-emerald-900 bg-opacity-60 py-2 border-l-8 border-r-8 border-r-yellow-500 border-l-yellow-500 rounded-bl-md rounded-br-md text-center"
+      >
+        <h3 class="text-xl tracking-widest">
+          {{ product.fields.name | titlecase }}
+        </h3>
+        <p class="text-base">
+          <i class="fas fa-yen-sign text-xs"></i>
+          {{ product.fields.price }}
+        </p>
+      </div>
+    </div>
+    }
+  </main>
 </section>
