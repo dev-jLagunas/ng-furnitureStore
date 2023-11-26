@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { ProductsAllService } from '../../services/products-all.service';
 import { Furniture } from '../../interfaces/products.interface';
 import { Title } from '@angular/platform-browser';
-
+import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-products-all',
   standalone: true,
@@ -24,7 +24,8 @@ export class ProductsAllComponent implements OnInit {
   constructor(
     private router: Router,
     private productsAllService: ProductsAllService,
-    private titleService: Title
+    private titleService: Title,
+    private cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -70,5 +71,16 @@ export class ProductsAllComponent implements OnInit {
   clearFilters() {
     this.filteredProducts = this.products;
     this.productsFilterComponent.clearFilters();
+  }
+
+  addToCart(product: Furniture) {
+    const firstImage = product.fields.image[0];
+
+    this.cartService.addItemToCart({
+      id: product.id,
+      name: product.fields.name,
+      price: product.fields.price,
+      image: firstImage,
+    });
   }
 }

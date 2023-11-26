@@ -1,11 +1,30 @@
-<section>
-  <div>
-    <p>Cart items go here my friend</p>
-  </div>
-  <div>
-    <p>Total: $$$$</p>
+<section class="flex flex-col justify-center items-center h-full space-y-10">
+  <div
+    *ngFor="let item of cartItems"
+    class="text-center h-32 w-full relative group"
+  >
+    <img
+      [src]="item.image.url"
+      alt="Product Image"
+      class="h-full w-full object-cover"
+    />
     <button
-      class="bg-orange-700 px-2 py-1 mx-auto w-max text-white tracking-widest rounded-md mt-4"
+      class="bg-red-500 text-white p-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-700 hover:cursor-pointer absolute top-0 right-0"
+      (click)="removeItem(item.id)"
+    >
+      <i class="fas fa-times"></i>
+    </button>
+    <p>
+      {{ item.name | titlecase }}
+    </p>
+    <p class="text-xs">{{ item.price | currency : "JPY" : "symbol" }}</p>
+  </div>
+  <div class="flex flex-col justify-center items-center mb-2 w-full">
+    <p class="text-base tracking-widest mb-1 font-bold">
+      Total: {{ totalPrice | currency : "JPY" : "symbol" }}
+    </p>
+    <button
+      class="bg-orange-700 px-2 py-1 mx-auto w-max text-white tracking-widest rounded-md"
     >
       Checkout
     </button>

@@ -46,7 +46,7 @@
     </div>
     }
     <div
-      class="sm:flex-1 bg-gray-800 bg-opacity-40 border-l-8 border-b-8 sm:border-b-0 sm:border-t-8 border-double border-slate-100 text-white text-center flex flex-col items-center justify-center space-y-1 py-2 sm:py-5 lg:py-4 xl:py-8"
+      class="sm:flex-1 bg-gray-800 bg-opacity-40 border-l-8 border-b-8 sm:border-b-0 sm:border-t-8 border-double border-slate-100 text-white text-center flex flex-col items-center justify-center space-y-1 py-2 sm:py-1 lg:py-4 xl:py-8"
     >
       <h2 class="text-sm sm:text-2xl tracking-widest lg:text-3xl">
         {{ singleProductData.fields.name | titlecase }}
@@ -56,13 +56,19 @@
       <p class="text-xs px-2 lg:text-xs">
         {{ singleProductData.fields.description }}
       </p>
-      <div class="flex w-max mx-auto">
+      <div class="flex w-full justify-center items-center space-x-2">
         <div *ngFor="let color of singleProductData.fields.colors" class="">
           <div
             [style.background-color]="color"
             class="h-4 w-4 rounded-full"
           ></div>
         </div>
+        <button
+          class="text-gray-800 px-2 py-1 flex items-center space-x-2 border border-double border-white text-xs bg-white"
+        >
+          <i class="fas fa-shopping-cart"></i>
+          <span>Add to Cart</span>
+        </button>
       </div>
     </div>
   </div>

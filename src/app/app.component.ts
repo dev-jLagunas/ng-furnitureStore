@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -21,8 +21,15 @@ import { CartService } from './services/cart.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  cartItemsCount: number = 0;
   constructor(public cartService: CartService) {}
+
+  ngOnInit() {
+    this.cartService.cartItems$.subscribe((cartItems) => {
+      this.cartItemsCount = cartItems.length;
+    });
+  }
 
   get cartVisible$() {
     return this.cartService.cartVisible$;

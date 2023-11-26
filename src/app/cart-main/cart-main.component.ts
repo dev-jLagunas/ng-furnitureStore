@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../services/cart.service';
 import { CartItemComponent } from './cart-item/cart-item.component';
@@ -10,10 +10,17 @@ import { CartItemComponent } from './cart-item/cart-item.component';
   templateUrl: './cart-main.component.html',
   styleUrl: './cart-main.component.css',
 })
-export class CartMainComponent {
+export class CartMainComponent implements OnInit {
+  cartItems: any[] = [];
   isCartOpen = true;
   isCartClosing = false;
   constructor(private cartService: CartService) {}
+
+  ngOnInit() {
+    this.cartService.cartItems$.subscribe((items) => {
+      this.cartItems = items;
+    });
+  }
 
   closeCart() {
     this.isCartClosing = true;

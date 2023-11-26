@@ -70,7 +70,12 @@
               (click)="navigateToSingleProduct(product.id)"
             ></i>
           </p>
-          <p><i class="fas fa-shopping-cart text-yellow-500"></i></p>
+          <p>
+            <i
+              class="fas fa-shopping-cart text-yellow-500"
+              (click)="addToCart(product)"
+            ></i>
+          </p>
         </div>
         }
         <div

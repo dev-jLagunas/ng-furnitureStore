@@ -4,10 +4,16 @@
   >
     <app-navbar></app-navbar>
     <img src="assets/logo/Logo.svg" alt="Leafe logo" class="h-20 -z-0" />
-    <i
-      class="fa fa-shopping-cart text-white text-3xl hover:cursor-pointer"
-      (click)="toggleCart()"
-    ></i>
+    <div class="relative">
+      <i
+        class="fa fa-shopping-cart text-white text-3xl hover:cursor-pointer"
+        (click)="toggleCart()"
+      ></i>
+      <span
+        class="text-white bg-yellow-500 w-7 h-7 rounded-full flex justify-center items-center absolute -top-4 -right-5"
+        >{{ cartItemsCount }}</span
+      >
+    </div>
   </div>
   <div class="fixed inset-0">
     <router-outlet></router-outlet>

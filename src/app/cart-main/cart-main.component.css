@@ -31,3 +31,34 @@
 .custom-zindex {
   z-index: 1000;
 }
+
+.text {
+  display: flex;
+  .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .letter {
+      transition: ease-out 2s;
+      transform: translateY(20%);
+      color: #ffc83d;
+    }
+
+    .shadow {
+      transform: scale(1, -1);
+      color: rgb(194 65 12);
+      transition: ease-in 5s, ease-out 5s;
+    }
+
+    &:hover {
+      .letter {
+        transform: translateY(-50%);
+      }
+
+      .shadow {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+    }
+  }
+}
