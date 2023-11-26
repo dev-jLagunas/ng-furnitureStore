@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class ProductsAllService {
   private products: Furniture[] = [];
+  private filteredProducts: Furniture[] = [];
 
   constructor(private httpService: HttpService) {}
 
-  // Fetch and transform the data
   fetchDataAndTransform(): Observable<Furniture[]> {
     return this.httpService.getAllProducts().pipe(
       map((data) => {
@@ -36,8 +36,33 @@ export class ProductsAllService {
     );
   }
 
-  // Access the transformed data
   getProducts(): Furniture[] {
     return this.products;
+  }
+
+  filterBySearchTerm(searchTerm: string): Furniture[] {
+    return this.filteredProducts.length
+      ? this.filteredProducts.filter((product) =>
+          product.fields.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : this.products.filter((product) =>
+          product.fields.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+  }
+
+  filterByPriceRange(priceRange: number): Furniture[] {
+    return this.filteredProducts.length
+      ? this.filteredProducts.filter(
+          (product) => product.fields.price <= priceRange
+        )
+      : this.products.filter((product) => product.fields.price <= priceRange);
+  }
+
+  getFilteredProducts(): Furniture[] {
+    return this.filteredProducts;
+  }
+
+  clearFilters() {
+    this.filteredProducts = [];
   }
 }

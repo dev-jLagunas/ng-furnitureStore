@@ -1,4 +1,38 @@
-<div class="h-max border mt-7">
-  <p>SEARCH</p>
-  <p>PRICE FILTER</p>
+<div class="h-max mt-8">
+  <div class="flex items-center space-x-1">
+    <input
+      [(ngModel)]="searchText"
+      type="text"
+      placeholder="Search..."
+      class="border rounded p-1 focus:outline-none focus:border-yellow-500"
+      (keyup.enter)="onSearch()"
+    />
+    <button (click)="onSearch()" class="bg-yellow-500 text-white p-2 rounded">
+      <i class="fas fa-search"></i>
+    </button>
+    <button (click)="clearFilters()" class="bg-red-500 text-white p-2 rounded">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <fieldset class="space-y-1 sm:w-70 mt-2">
+    <input
+      [(ngModel)]="priceRange"
+      type="range"
+      class="w-full accent-yellow-500"
+      min="1000"
+      max="5000"
+      (input)="onPriceRangeChange()"
+    />
+    <div
+      aria-hidden="true"
+      class="flex justify-evenly space-x-1 text-white text-xs"
+    >
+      <span><i class="fas fa-yen-sign"></i> 1000</span>
+      <span><i class="fas fa-yen-sign"></i> 3000</span>
+      <span><i class="fas fa-yen-sign"></i> 5000</span>
+      <span><i class="fas fa-yen-sign"></i> 7000</span>
+      <span><i class="fas fa-yen-sign"></i> 9000</span>
+    </div>
+  </fieldset>
 </div>

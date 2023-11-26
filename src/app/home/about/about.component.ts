@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about',
@@ -18,6 +19,8 @@ import { trigger, style, animate, transition } from '@angular/animations';
   ],
 })
 export class AboutComponent implements OnInit {
+  constructor(private titleService: Title) {}
+
   textArray: string[] = [
     'Leafe crafts sustainable furniture with eco-friendly materials for a greener world',
     'Experience modern design infused with the calming essence of nature at Leafe',
@@ -30,6 +33,7 @@ export class AboutComponent implements OnInit {
   currentText: string | null = 'About Leafe';
 
   ngOnInit() {
+    this.titleService.setTitle('About | Leafe');
     setInterval(() => this.updateText(), 4000);
   }
 
