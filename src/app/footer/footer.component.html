@@ -1,14 +1,16 @@
 <footer class="text-white">
   <div class="">
-    <ul class="flex justify-evenly">
-      <li>Home</li>
-      <li>Products</li>
-      <li>About</li>
-      <li>Contact Us</li>
-      <li>Sale</li>
+    <ul class="flex justify-evenly hover:cursor-pointer">
+      <li (click)="navigateToHome()">Home</li>
+      <li (click)="navigateToProducts()">Products</li>
+      <li (click)="navigateToAbout()">About</li>
+      <li (click)="navigateToContact()">Contact Us</li>
+      <li (click)="navigateToAccount()">Account</li>
     </ul>
     <div class="">
-      <div class="flex justify-center space-x-4 opacity-50">
+      <div
+        class="flex justify-center space-x-4 opacity-50 hover:cursor-pointer"
+      >
         <a rel="noopener noreferrer" href="#" title="Instagram" class="">
           <i class="fab fa-instagram"></i>
         </a>

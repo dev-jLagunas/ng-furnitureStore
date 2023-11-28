@@ -54,8 +54,8 @@ export class NavbarComponent implements OnInit {
     this.toggleNavbar();
   }
 
-  navigateToSale(): void {
-    this.router.navigate(['/sale']);
+  navigateToAccount(): void {
+    this.router.navigate(['/account']);
     this.toggleNavbar();
   }
 }

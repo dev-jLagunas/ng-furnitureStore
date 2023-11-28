@@ -7,6 +7,7 @@ import { ProductsAllService } from '../../services/products-all.service';
 import { Furniture } from '../../interfaces/products.interface';
 import { Title } from '@angular/platform-browser';
 import { CartService } from '../../services/cart.service';
+
 @Component({
   selector: 'app-products-all',
   standalone: true,

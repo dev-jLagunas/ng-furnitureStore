@@ -50,7 +50,7 @@
     </div>
   </header>
   <main
-    class="h-screen overflow-y-auto sm:w-90vw sm:mx-auto sm:grid sm:grid-cols-2 sm:gap-x-2 lg:grid-cols-3 pb-72 lg:pb-60"
+    class="h-screen overflow-y-auto sm:w-90vw sm:mx-auto sm:grid sm:grid-cols-2 sm:gap-x-2 lg:grid-cols-3 pb-96 lg:pb-60"
   >
     <ng-container *ngIf="filteredProducts.length > 0; else noResults">
       @for (product of filteredProducts; track product.id) {
@@ -62,7 +62,7 @@
           class="w-full h-80 md:h-64 lg:h-52 object-cover rounded-tl-md rounded-tr-md"
         />
         <div
-          class="absolute top-32 left-52 sm:left-28 lg:left-44 lg:top-20 md:left-36 text-3xl flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hover:cursor-pointer"
+          class="absolute top-32 left-52 sm:left-28 lg:left-44 2xl:left-64 lg:top-20 md:left-36 text-3xl flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hover:cursor-pointer"
         >
           <p>
             <i
